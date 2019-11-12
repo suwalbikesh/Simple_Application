@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".fragments.RegistrationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/etRegisterEmail"
+        style="@style/EditTextStyle"
+        android:hint="Enter Your Email" />
+
+    <EditText
+        android:id="@+id/etRegisterPassword"
+        style="@style/EditTextStyle"
+        android:hint="Enter Your Password" />
+
+    <EditText
+        android:id="@+id/etRegisterRePassword"
+        style="@style/EditTextStyle"
+        android:hint="Re-Type Your Password" />
+
+    <Button
+        style="@style/ButtonStyle"
+        android:id="@+id/btnRegister"
+        android:text="SignUp"/>
+
+</LinearLayout>
