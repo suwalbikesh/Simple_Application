@@ -53,28 +53,30 @@ public class RegistrationFragment extends Fragment {
                 userpassword = etRegisterPassword.getText().toString();
                 cpassword = etRegisterRePassword.getText().toString();
 
-                if (userpassword.equals(cpassword)){
-                    UsersDetails usersDetails = new UsersDetails();
-                    usersDetails.setEmail(useremail);
-                    usersDetails.setPassword(userpassword);
-                    userList.add(usersDetails);
-
-                    AuthenticationCheck check = new AuthenticationCheck();
-                    check.setUsersDetailsList(userList);
-
-                    Toast.makeText(getActivity(), "Register Successful", Toast.LENGTH_SHORT).show();
-                    etRegisterEmail.getText().clear();
-                    etRegisterPassword.getText().clear();
-                    etRegisterRePassword.getText().clear();
-                }
-                else if (TextUtils.isEmpty(etRegisterEmail.getText().toString())){
+                if (TextUtils.isEmpty(etRegisterEmail.getText().toString())){
                     etRegisterEmail.setError("Please enter your email");
                 }
                 else if (TextUtils.isEmpty(etRegisterPassword.getText().toString())){
                     etRegisterPassword.setError("Please enter your password");
                 }
                 else {
-                    etRegisterRePassword.setError("Re-type Password doesn't match");
+
+                    if (userpassword.equals(cpassword)) {
+                        UsersDetails usersDetails = new UsersDetails();
+                        usersDetails.setEmail(useremail);
+                        usersDetails.setPassword(userpassword);
+                        userList.add(usersDetails);
+
+                        AuthenticationCheck check = new AuthenticationCheck();
+                        check.setUsersDetailsList(userList);
+
+                        Toast.makeText(getActivity(), "Register Successful", Toast.LENGTH_SHORT).show();
+                        etRegisterEmail.getText().clear();
+                        etRegisterPassword.getText().clear();
+                        etRegisterRePassword.getText().clear();
+                    } else {
+                        etRegisterRePassword.setError("Re-type Password doesn't match");
+                    }
                 }
             }
         });
